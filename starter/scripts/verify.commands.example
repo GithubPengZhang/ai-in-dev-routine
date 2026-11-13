@@ -1,0 +1,6 @@
+# One finish check per line. Copy this file to scripts/verify.commands
+# and replace the samples with commands that prove this repo works.
+# A comment-only file does not count: the Stop hook keeps the session open.
+#
+# python3 -m pytest
+# npm test
