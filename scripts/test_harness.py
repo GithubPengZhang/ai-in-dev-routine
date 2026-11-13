@@ -65,12 +65,12 @@ def test_unlinked_note() -> None:
 
 
 def test_broken_link() -> None:
-        with tempfile.TemporaryDirectory() as raw:
-            tmp = Path(raw)
-            collection_fixture(tmp)
-            write(tmp / "notes" / "one.md", "See [gone](../missing.md).\n")
-            errors = check(tmp)
-            expect(any("missing.md" in error for error in errors), errors)
+    with tempfile.TemporaryDirectory() as raw:
+        tmp = Path(raw)
+        collection_fixture(tmp)
+        write(tmp / "notes" / "one.md", "See [gone](../missing.md).\n")
+        errors = check(tmp)
+        expect(any("missing.md" in error for error in errors), errors)
 
 
 def test_directory_link() -> None:
