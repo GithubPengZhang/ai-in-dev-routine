@@ -6,6 +6,8 @@ Recorded 2026-11-13 from a Chinese carousel of Lauren Tan's talk, checked agains
 
 **Setup this note assumes.** "Cloud Code" here means Claude Code, the CLI agent. The same order applies to a Cursor cloud agent; only the filenames change (`AGENTS.md` and project skills, instead of `CLAUDE.md` and `.claude/skills`).
 
+**Started in this repo.** The week-one pieces are [CLAUDE.md](../CLAUDE.md), [verify-notes](../.claude/skills/verify-notes/SKILL.md), [the feature map](../features/README.md), and a Stop hook that runs [scripts/check_collection.py](../scripts/check_collection.py). [starter/](../starter/README.md) is the same shape to copy onto an application repo. Its Stop hook runs `scripts/verify.commands` and will not let a session finish until those commands exist and pass.
+
 ## What she is actually doing
 
 The carousel's seven points are one loop, in this order:
