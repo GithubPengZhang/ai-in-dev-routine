@@ -65,12 +65,12 @@ def test_unlinked_note() -> None:
 
 
 def test_broken_link() -> None:
-    with tempfile.TemporaryDirectory() as raw:
-        tmp = Path(raw)
-        collection_fixture(tmp)
-        write(tmp / "notes" / "one.md", "See [gone](../missing.md).\n")
-        errors = check(tmp)
-        expect(any("missing.md" in error for error in errors), errors)
+        with tempfile.TemporaryDirectory() as raw:
+            tmp = Path(raw)
+            collection_fixture(tmp)
+            write(tmp / "notes" / "one.md", "See [gone](../missing.md).\n")
+            errors = check(tmp)
+            expect(any("missing.md" in error for error in errors), errors)
 
 
 def test_directory_link() -> None:
@@ -125,19 +125,19 @@ def test_verify_comments_only() -> None:
 
 
 def test_verify_pass_and_fail() -> None:
-        with tempfile.TemporaryDirectory() as raw:
-            tmp = Path(raw)
-            write(tmp / "scripts" / "verify.commands", "python3 -c 'import sys; sys.exit(0)'\n")
-            proc = run_verify(tmp)
-            expect(proc.returncode == 0, proc.stderr + proc.stdout)
-            expect(proc.stdout.startswith("ok:"), proc.stdout)
-            write(
-                tmp / "scripts" / "verify.commands",
-                "python3 -c 'import sys; sys.stderr.write(\"boom\\n\"); sys.exit(1)'\n",
-            )
-            proc = run_verify(tmp)
-            expect(proc.returncode == 2, proc.returncode)
-            expect("boom" in proc.stderr, proc.stderr)
+    with tempfile.TemporaryDirectory() as raw:
+        tmp = Path(raw)
+        write(tmp / "scripts" / "verify.commands", "python3 -c 'import sys; sys.exit(0)'\n")
+        proc = run_verify(tmp)
+        expect(proc.returncode == 0, proc.stderr + proc.stdout)
+        expect(proc.stdout.startswith("ok:"), proc.stdout)
+        write(
+            tmp / "scripts" / "verify.commands",
+            "python3 -c 'import sys; sys.stderr.write(\"boom\\n\"); sys.exit(1)'\n",
+        )
+        proc = run_verify(tmp)
+        expect(proc.returncode == 2, proc.returncode)
+        expect("boom" in proc.stderr, proc.stderr)
 
 
 def test_stop_hook_on_this_repo() -> None:
