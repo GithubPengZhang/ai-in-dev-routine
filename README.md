@@ -12,6 +12,8 @@ To use the same loop on an application you ship, copy [starter/](starter/README.
 
 | Date | Note |
 | --- | --- |
+| 2026-11-16 | [Escalate models only when stuck](notes/2026-11-16-escalate-models-only-when-stuck.md). Keep the strong model for plan, second failure, and hard judgment—not a pasted multi-agent zoo. |
+| 2026-11-16 | [Spec first, then a diff you understand](notes/2026-11-16-spec-first-then-diff-you-understand.md). Human decides, AI executes: Spec → plan → verified slices → no blind Accept All. |
 | 2026-11-13 | [Enforce the correction, then automate](notes/2026-11-13-enforce-corrections-before-automation.md). Lauren Tan's SpaceXAI method, adapted to a Claude Code workday. |
 
 ## Layout
